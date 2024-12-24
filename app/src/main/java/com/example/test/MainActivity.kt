@@ -119,7 +119,9 @@ fun AnotherScreen(userViewModel: UserViewModel, navController: NavController){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button( onClick = {navController.navigate("home")}) { }
+        Button( onClick = {navController.navigate("home")}) {
+            Text("Go back")
+        }
         Text(
             text = greetingMessage,
             style = MaterialTheme.typography.headlineMedium
