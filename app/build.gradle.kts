@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.devtoolsKsp)
 }
 
 android {
     namespace = "com.example.test"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.test"
@@ -52,9 +52,12 @@ android {
 
 dependencies {
 
-    implementation ("androidx.room:room-runtime:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
-    implementation ("androidx.room:room-ktx:2.5.2")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation (libs.androidx.runtime.livedata)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    annotationProcessor(libs.androidx.room.room.compiler)
+    ksp(libs.androidx.room.room.compiler)
     implementation ("androidx.navigation:navigation-compose:2.7.4")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

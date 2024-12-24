@@ -9,7 +9,7 @@ class UserViewModel(private val userDao: UserDao) : ViewModel() {
     // Сохраняем пользователя
     fun saveUser(login: String, password: String) {
         viewModelScope.launch {
-            val user = User(login = login, password = password)
+            val user = UsersEnt(login = login, password = password)
             userDao.insertUser(user)
         }
     }
